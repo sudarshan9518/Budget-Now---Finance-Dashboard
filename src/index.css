@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=National+Park:wght@200..800&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+ --color-expense: #a85252;
+--color-expense-light: #d47373;
+--color-expense-dark: #8a3a3a;
+}
+
+* {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: auto;
+  font-style: normal;
+}
