@@ -1,3 +1,35 @@
+import * as XLSX from "xlsx";
+
+export const downloadExpensesAsExcel = (expenses) => {
+  // Prepare data for Excel
+  const data = expenses.map((expense) => ({
+    Date: formatDate(expense.date),
+    Description: expense.description,
+    Category: expense.category.charAt(0).toUpperCase() + expense.category.slice(1),
+    Amount: expense.amount,
+  }));
+
+  // Create a new workbook
+  const worksheet = XLSX.utils.json_to_sheet(data);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Expenses");
+
+  // Format columns (optional - set column widths)
+  worksheet["!cols"] = [
+    { wch: 15 }, // Date
+    { wch: 30 }, // Description
+    { wch: 15 }, // Category
+    { wch: 12 }, // Amount
+  ];
+
+  // Generate filename with current date
+  const filename = `Expenses_${new Date().toISOString().split("T")[0]}.xlsx`;
+
+  // Download the file
+  XLSX.writeFile(workbook, filename);
+};
+
+
 export const formatCurrency = (amount) => {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -40,7 +72,7 @@ export const getExpensesByCategory = (expenses) => {
 export const getChartData = (expenses) => {
   const expensesByCategory = getExpensesByCategory(expenses);
   return Object.entries(expensesByCategory)
-    .filter(([_, value]) => value > 0)
+    .filter(([, value]) => value > 0)
     .map(([name, value]) => ({
       name: name.charAt(0).toUpperCase() + name.slice(1),
       value,

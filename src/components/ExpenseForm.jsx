@@ -44,7 +44,7 @@ const ExpenseForm = () => {
       setAmount("");
       setCategory("food");
       setDate(new Date().toISOString().split("T")[0]);
-    } catch (error) {
+    } catch {
       toast.error("Failed to add expense");
     } finally {
       setIsSubmitting(false);
@@ -52,15 +52,15 @@ const ExpenseForm = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 w-full max-w-md mx-auto">
-      <h2 className="text-2xl font-semibold text-expense-dark mb-6 text-center">
+    <div className="mx-auto w-full max-w-md rounded-lg border border-slate-200 bg-white p-6 shadow-md dark:border-slate-800 dark:bg-slate-900">
+      <h2 className="mb-6 text-center text-2xl font-semibold text-expense-dark dark:text-rose-200">
         Add New Expense
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
             htmlFor="description"
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300"
           >
             Description
           </label>
@@ -70,14 +70,14 @@ const ExpenseForm = () => {
             placeholder="What did you spend on?"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-expense-light focus:border-transparent transition-all"
+            className="w-full rounded-md border border-slate-300 bg-white px-4 py-2 text-slate-900 transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-expense-light dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
             disabled={isSubmitting}
           />
         </div>
         <div>
           <label
             htmlFor="amount"
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300"
           >
             Amount
           </label>
@@ -87,14 +87,14 @@ const ExpenseForm = () => {
             placeholder="0.00"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-expense-light focus:border-transparent transition-all"
+            className="w-full rounded-md border border-slate-300 bg-white px-4 py-2 text-slate-900 transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-expense-light dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder:text-slate-500"
             disabled={isSubmitting}
           />
         </div>
         <div>
           <label
             htmlFor="category"
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300"
           >
             Category
           </label>
@@ -103,7 +103,7 @@ const ExpenseForm = () => {
             placeholder="What did you spend on?"
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-expense-light focus:border-transparent transition-all"
+            className="w-full rounded-md border border-slate-300 bg-white px-4 py-2 text-slate-900 transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-expense-light dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
             disabled={isSubmitting}
           >
             {categoryOptions.map((option) => (
@@ -117,7 +117,7 @@ const ExpenseForm = () => {
         <div>
           <label
             htmlFor="date"
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="mb-1 block text-sm font-medium text-slate-700 dark:text-slate-300"
           >
             Date
           </label>
@@ -126,13 +126,13 @@ const ExpenseForm = () => {
             id="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-expense-light focus:border-transparent transition-all"
+            className="w-full rounded-md border border-slate-300 bg-white px-4 py-2 text-slate-900 transition-all focus:border-transparent focus:outline-none focus:ring-2 focus:ring-expense-light dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100"
             disabled={isSubmitting}
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-expense text-white py-2  rounded-md hover:bg-expense-dark font-medium focus:outline-none focus:ring-2 focus:ring-expense-light  transition-all"
+          className="w-full rounded-md bg-expense py-2 font-medium text-white transition-all hover:bg-expense-dark focus:outline-none focus:ring-2 focus:ring-expense-light"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Adding..." : "Add Expense"}

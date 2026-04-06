@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useExpenses } from "../context/ExpenseContext";
 import { getChartData, getExpensesByMonth } from "../utils/expenses";
 import { BarChart, PieChart } from "lucide-react";
-import ExpensePieChart from "./ExpensePieChart";
-import ExpenseBarChart from "./ExpenseBarChart";
+import ExpensePieChartThemed from "./ExpensePieChartThemed";
+import ExpenseBarChartThemed from "./ExpenseBarChartThemed";
 
 const ExpenseChart = () => {
   const { expenses } = useExpenses();
@@ -14,8 +14,8 @@ const ExpenseChart = () => {
 
   if (expenses.length === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-md text-center p-6">
-        <h2 className="text-2xl font-semibold text-expense-dark mb-4">
+      <div className="rounded-lg border border-slate-200 bg-white p-6 text-center shadow-md dark:border-slate-800 dark:bg-slate-900">
+        <h2 className="mb-4 text-2xl font-semibold text-expense-dark dark:text-rose-200">
           Expense Analytics
         </h2>
         <div className="flex justify-center mb-6 space-x-4">
@@ -24,7 +24,7 @@ const ExpenseChart = () => {
             className={`flex items-center cursor-pointer px-4 py-2 rounded-md transition-all ${
               chartType === "pie"
                 ? "bg-expense text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
             }`}
           >
             <PieChart size={18} className="mr-2" />
@@ -35,14 +35,14 @@ const ExpenseChart = () => {
             className={`flex items-center cursor-pointer px-4 py-2 rounded-md transition-all ${
               chartType === "bar"
                 ? "bg-expense text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
             }`}
           >
             <BarChart size={18} className="mr-2" />
             <span>Bar Chart</span>
           </button>
         </div>
-        <p className="text-gray-500">
+        <p className="text-slate-500 dark:text-slate-400">
           Add some expenses to see your spending analytics
         </p>
       </div>
@@ -50,8 +50,8 @@ const ExpenseChart = () => {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-semibold text-expense-dark mb-4">
+    <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-md dark:border-slate-800 dark:bg-slate-900">
+      <h2 className="mb-4 text-2xl font-semibold text-expense-dark dark:text-rose-200">
         Expense Analytics
       </h2>
 
@@ -61,7 +61,7 @@ const ExpenseChart = () => {
           className={`flex items-center cursor-pointer px-4 py-2 rounded-md transition-all ${
             chartType === "pie"
               ? "bg-expense text-white"
-              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
           }`}
         >
           <PieChart size={18} className="mr-2" />
@@ -72,7 +72,7 @@ const ExpenseChart = () => {
           className={`flex items-center cursor-pointer px-4 py-2 rounded-md transition-all ${
             chartType === "bar"
               ? "bg-expense text-white"
-              : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
           }`}
         >
           <BarChart size={18} className="mr-2" />
@@ -82,9 +82,9 @@ const ExpenseChart = () => {
 
       <div>
         {chartType === "pie" ? (
-          <ExpensePieChart data={chartData} />
+          <ExpensePieChartThemed data={chartData} />
         ) : (
-          <ExpenseBarChart data={monthlyData} />
+          <ExpenseBarChartThemed data={monthlyData} />
         )}
       </div>
     </div>

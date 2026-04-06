@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=National+Park:wght@200..800&display=swap");
 
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
- --color-expense: #a85252;
---color-expense-light: #d47373;
---color-expense-dark: #8a3a3a;
+  --color-expense: #a85252;
+  --color-expense-light: #d47373;
+  --color-expense-dark: #8a3a3a;
 }
 
 * {
@@ -13,4 +14,23 @@
   font-optical-sizing: auto;
   font-weight: auto;
   font-style: normal;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: #f8fafc;
+  color: #0f172a;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+.dark body {
+  background: #020617;
+  color: #e2e8f0;
 }

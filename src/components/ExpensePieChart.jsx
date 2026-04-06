@@ -21,7 +21,7 @@ const CATEGORY_COLORS = {
 const ExpensePieChart = ({ data }) => {
   if (data.length === 0) {
     return (
-      <div className="text-center text-gray-500">
+      <div className="text-center text-slate-500 dark:text-slate-400">
         No expense data to display
       </div>
     );
@@ -38,11 +38,11 @@ const ExpensePieChart = ({ data }) => {
       const percentage = ((value / total) * 100).toFixed(0);
 
       return (
-        <div className="bg-white p-4 rounded-md shadow-md border border-gray-100">
-          <p className="font-medium">{name}</p>
-          <p className="text-lg">
+        <div className="rounded-md border border-slate-200 bg-white p-4 shadow-md dark:border-slate-700 dark:bg-slate-900">
+          <p className="font-medium text-slate-900 dark:text-slate-100">{name}</p>
+          <p className="text-lg text-slate-700 dark:text-slate-200">
             ₹{value.toFixed(2)}
-            <span className="text-sm text-gray-500 ml-1">({percentage}%)</span>
+            <span className="ml-1 text-sm text-slate-500 dark:text-slate-400">({percentage}%)</span>
           </p>
         </div>
       );

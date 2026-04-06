@@ -32,6 +32,8 @@ Budget Now is a financial dashboard application that helps users track their exp
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
 - **Toast Notifications**: User-friendly feedback for actions
 - **Clean UI**: Modern interface built with Tailwind CSS
+- **Excel Export**: Export expense data to Excel format for external analysis
+- **Dark Theme**: Toggle between light and dark themes for better user experience
 
 ## 🛠️ Tech Stack
 

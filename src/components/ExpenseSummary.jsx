@@ -26,35 +26,35 @@ const ExpenseSummary = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg">
+      <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-md transition hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
         <div className="flex items-center space-x-4">
-          <div className="bg-expense-light p-3 rounded-full">
+          <div className="rounded-full bg-expense-light/20 p-3">
             <Wallet size={24} className="text-expense" />
           </div>
           <div>
-            <h3 className="text-sm font-medium text-gray-500">
+            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400">
               Total Expenses
             </h3>
-            <p className="text-2xl font-bold text-expense-dark">
+            <p className="text-2xl font-bold text-expense-dark dark:text-rose-200">
               {formatCurrency(totalExpenses)}
             </p>
           </div>
         </div>
       </div>
-      <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg">
+      <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-md transition hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
         <div className="flex items-center space-x-4">
-          <div className="bg-red-100 p-3 rounded-full">
+          <div className="rounded-full bg-red-100 p-3 dark:bg-red-500/15">
             <TrendingUp size={24} className="text-red-500" />
           </div>
           <div>
-            <h3 className="text-sm font-medium text-gray-500">
+            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400">
               Highest Category
             </h3>
-            <p className="text-2xl font-bold text-expense-dark">
+            <p className="text-2xl font-bold text-expense-dark dark:text-rose-200">
               {highestCategory.name !== "none" ? (
                 <>
                   <span className="capitalize">{highestCategory.name}</span>
-                  <span className="text-sm font-normal text-gray-500 ml-2">
+                  <span className="ml-2 text-sm font-normal text-slate-500 dark:text-slate-400">
                     ({formatCurrency(highestCategory.amount)})
                   </span>
                 </>
@@ -65,14 +65,16 @@ const ExpenseSummary = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg">
+      <div className="rounded-lg border border-slate-200 bg-white p-6 shadow-md transition hover:-translate-y-0.5 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
         <div className="flex items-center space-x-4">
-          <div className="bg-green-100 p-3 rounded-full">
+          <div className="rounded-full bg-green-100 p-3 dark:bg-green-500/15">
             <TrendingDown size={24} className="text-green-500" />
           </div>
           <div>
-            <h3 className="text-sm font-medium text-gray-500">Total Entries</h3>
-            <p className="text-2xl font-bold text-expense-dark">
+            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400">
+              Total Entries
+            </h3>
+            <p className="text-2xl font-bold text-expense-dark dark:text-rose-200">
               {expenses.length}
             </p>
           </div>
